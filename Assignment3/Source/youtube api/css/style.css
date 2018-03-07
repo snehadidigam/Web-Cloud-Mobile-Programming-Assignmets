@@ -3,8 +3,8 @@ body {
     background-repeat:no-repeat;
     background-size: cover;
 }
-header { margin-top: 30px; }
-header a { color:blue; text-decoration: none; }
+header { margin-top: 10px; }
+h2 header a { color:red; text-decoration: aquamarine; }
 header a:hover { text-decoration: none; }
 form { margin-top: 20px; }
 form, #results { padding: 0 20px; }

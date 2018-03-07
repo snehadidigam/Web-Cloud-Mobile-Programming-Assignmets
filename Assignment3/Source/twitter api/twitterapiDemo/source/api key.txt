@@ -1,0 +1,4 @@
+35dd737749cf48d98ac68bd6c627be7e
+
+
+curl https://newsapi.org/v2/everything?q=donaldtrump -G -d apiKey=35dd737749cf48d98ac68bd6c627be7e

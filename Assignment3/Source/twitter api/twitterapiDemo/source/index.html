@@ -1,0 +1,64 @@
+<html>
+<head>
+  <title>Search for News</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- <script src='//code.jquery.com/jquery-3.2.1.min.js'> </script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <script type="text/javascript" src="script.js"></script>
+  <script>
+    var name = "donaldtrump";
+  //var url = 'https://newsapi.org/v2/everything?q='+name+'&apiKey=35dd737749cf48d98ac68bd6c627be7e&sortBy=popularity';
+  var url = 'https://api.twitter.com/1.1/followers/ids.json?screen_name=theSeanCook';
+
+var req = new Request(url);
+
+fetch(req)
+    .then(function(response) {
+      return response.json();})
+    .then(function(json){
+      var myList = document.querySelector('ol');
+
+      for(var i = 0; i < 10; i++) {
+        var listItem = document.createElement('li');
+        
+        listItem.innerHTML += '<p> ';
+        listItem.innerHTML = "ARTICLE TITLE ' "+ json.articles[i].title + " ' ";
+        listItem.innerHTML += '<br>';
+        listItem.innerHTML += " WRITTEN BY ' "+ json.articles[i].author + " ' ";
+        listItem.innerHTML += '<br>';
+        listItem.innerHTML += " DESRCIPTION: ' "+ json.articles[i].description + " ' ";
+        listItem.innerHTML += '<br>';
+        listItem.innerHTML += " READ THE FULL ARTICLE IN THIS LINK: <a href="+ json.articles[i].url+">"+json.articles[i].url+"</a>";
+        listItem.innerHTML += '<br>';
+        listItem.innerHTML += "<a href="+ json.articles[i].url+"> <img src="+json.articles[i].urlToImage+" height='100' width='100'></a>";
+        listItem.innerHTML += '</p> ';
+        myList.appendChild(listItem);
+      }
+      
+    });
+      
+
+  
+  </script>
+</head>
+<body>
+
+  <div class="search">
+    <input id="username" name= "username"placeholder="search for news here..." type="text"></input>
+  </div>
+  <div id="profile">
+    <h2>
+YOU TOP 10 RESULTS
+    </h2>
+    <ol>
+      
+    </ol>
+  </div>
+  <center>
+  <a href="newindex.html">
+      <button class= "button" value="submit" id="btn_click" onclick="onSubmit()">HOME</button>
+    
+  </a>
+  </center>
+</body>
+</html>
